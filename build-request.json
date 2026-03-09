@@ -1,0 +1,330 @@
+{
+  "kind": "build_request",
+  "title": "Rebuild Quick-Groceries delivery app with all features",
+  "projectName": "Quick-Groceries",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Implement a complete product catalog backend with CRUD operations for products, categories, and stock management. Support product attributes: name, price, category, description, image, stock quantity, and discount percentage.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "build a grocery delivery app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Products can be created, read, updated, and deleted",
+        "Products have name, price, category, description, image (blob), stock, and discount fields",
+        "Categories can be managed independently",
+        "Out-of-stock products are flagged"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement order management backend: users can place orders with a list of items, delivery address, and payment method. Admins can view all orders and update order status (Pending, Confirmed, Delivered).",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "build a grocery delivery app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Orders store item list, delivery address, payment method, and status",
+        "Users can retrieve their own order history",
+        "Admins can list all orders and update order status"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Implement delivery charges backend: store a configurable delivery fee, minimum order amount for free delivery threshold, and a free delivery toggle. Expose functions to get and update delivery settings.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Delivery charges display and management"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Delivery fee, free delivery threshold, and free delivery toggle are persisted",
+        "Delivery settings are retrievable by any user",
+        "Only admins can update delivery settings"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement promo/discount coupon backend: support creating, listing, and deleting promo codes with a discount type (percentage or fixed amount), discount value, minimum order value, usage limit, and expiry date. Expose a function to validate and apply a promo code to an order total.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Promo/discount coupon support"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Promo codes can be created with code string, discount type, value, min order, usage limit, and expiry",
+        "A validate function returns the discount amount for a given code and order subtotal",
+        "Expired or fully-used codes are rejected",
+        "Admins can list and delete promo codes"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement promotional offers backend: support creating, listing, and deleting time-limited offers (e.g., festival discounts, seasonal deals) with a title, description, discount percentage, start date, and end date.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Free delivery offers"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Offers can be created with title, description, discount percentage, start date, and end date",
+        "Active offers (within date range) are returned for the storefront",
+        "Admins can delete offers"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Implement payment records backend: create a payment record linked to an order with status (pending, paid, failed) and payment method. Admins can update payment status.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "build a grocery delivery app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Payment records are created alongside orders",
+        "Payment status can be updated by admins",
+        "Payments are retrievable by order ID and by user"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Implement user profile backend: store a user's display name keyed by their Internet Identity principal. Expose get and upsert functions.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "build a grocery delivery app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can save and retrieve their display name",
+        "Profile is keyed by caller principal"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Build a homepage with a hero banner featuring the app name 'Quick-Groceries', a tagline, a 'Shop Now' CTA button, a feature highlights strip (fast delivery, fresh products, best prices), category quick-links, and a featured products grid showing up to 8 products with loading skeletons.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "build a grocery delivery app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hero section displays app name, tagline, and Shop Now button",
+        "Feature highlights are displayed below the hero",
+        "Category links navigate to the products page filtered by category",
+        "Up to 8 featured products are shown with skeleton placeholders while loading"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Build a product listing page with a search bar and category filter badges. Products load from the backend and filter in real time. Each product card shows image, name, category, price, discount badge, and an Add to Cart button that is disabled when out of stock.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "build a grocery delivery app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Search filters products by name in real time",
+        "Category badges filter products by category",
+        "Out-of-stock products show a disabled Add to Cart button",
+        "Discount percentage badge is shown when applicable"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Build a shopping cart panel (slide-over) with item list, quantity increment/decrement controls, remove buttons, subtotal, applied delivery charge, and a Checkout button. Cart state persists in sessionStorage.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "build a grocery delivery app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Cart shows all added items with quantity controls",
+        "Subtotal updates dynamically",
+        "Delivery charge is shown based on current delivery settings",
+        "Free delivery threshold message is shown when applicable",
+        "Empty cart state is displayed when no items are in the cart"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Build a checkout page with: delivery address input, payment method selector, promo code entry field with an Apply button that validates the code and shows the discount, order summary with itemized list, subtotal, delivery charge (waived if free delivery applies), discount line, and total. On submission, create the order and payment record, then redirect to an order success page.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Delivery charges display and management",
+          "Promo/discount coupon support",
+          "Free delivery offers"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Delivery address is required before placing an order",
+        "Promo code field validates against the backend and shows the discount amount or an error",
+        "Order summary shows subtotal, delivery fee (or 'Free'), discount, and final total",
+        "Successful order placement navigates to the order success page",
+        "Active promotional offers are displayed on the checkout page"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Build an order success confirmation page that displays order ID, delivery address, itemized products list, pricing breakdown (subtotal, delivery, discount, total), and payment status.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "build a grocery delivery app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Order ID is prominently displayed",
+        "Full pricing breakdown is shown",
+        "Payment status is displayed"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Build an order history page for authenticated users showing all their past orders sorted by date, with order status, payment info, and itemized details in collapsible order cards.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "build a grocery delivery app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Only visible to authenticated users",
+        "Orders are sorted newest first",
+        "Each card shows status, date, items, and pricing breakdown"
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Build an admin dashboard with four tabs: Products (add/edit/delete/toggle stock), Orders (view all, update status), Payments (view all, update status), and Offers (manage promotional offers, promo codes, and delivery settings). Include a 'Seed Demo Data' button that populates sample grocery products.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Delivery charges display and management",
+          "Promo/discount coupon support",
+          "Free delivery offers"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Admin dashboard is only accessible to users with the Admin role",
+        "Products tab supports full CRUD with stock toggle",
+        "Orders tab allows status updates",
+        "Payments tab allows status updates",
+        "Offers tab allows creating/deleting promotional offers and promo codes, and editing delivery settings",
+        "Seed Demo Data button populates the backend with sample grocery products"
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Apply a fresh, vibrant grocery/food market visual theme throughout the app: use a green-dominant color palette with warm accent tones, clean card layouts, rounded corners, bold typography for headings, and a sticky navbar with logo, search bar, navigation links, cart icon with item badge, and login button.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "build a grocery delivery app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Color palette is consistently green-dominant with warm accents",
+        "Navbar is sticky and includes logo, search, nav links, cart badge, and login/logout",
+        "All pages use consistent card styles, spacing, and typography",
+        "App works in both light and dark modes"
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Render the generated hero banner image and app logo as static assets from frontend/public/assets/generated.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "build a grocery delivery app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hero section uses the generated banner image as its background",
+        "Navbar displays the generated logo"
+      ]
+    }
+  ],
+  "constraints": [
+    "App name is Quick-Groceries — use this throughout the UI",
+    "All backend logic must remain in a single Motoko actor in backend/main.mo",
+    "Do not modify files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui",
+    "Currency must be formatted as Indian Rupees (INR)"
+  ],
+  "nonGoals": [
+    "Real-time order tracking or WebSocket-based updates",
+    "External payment gateway integration",
+    "SMS or email notifications",
+    "Multi-vendor marketplace features",
+    "GPS or map-based delivery tracking"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Wide grocery store hero banner with fresh colorful vegetables, fruits, and grocery items arranged on a vibrant green background with warm lighting (hero-banner.dim_1440x500.png)",
+      "Quick-Groceries app logo: a stylized green shopping basket with a small leaf accent, clean and modern on transparent background (app-logo.dim_200x60.png)"
+    ],
+    "edits": []
+  }
+}

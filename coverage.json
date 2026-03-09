@@ -1,0 +1,232 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-27T10:06:27.278Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 16,
+    "implemented": 8,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Implement a complete product catalog backend with CRUD operations for products, categories, and stock management. Support product attributes: name, price, category, description, image, stock quantity, and discount percentage.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-10",
+        "summary": "Build a shopping cart panel (slide-over) with item list, quantity increment/decrement controls, remove buttons, subtotal, applied delivery charge, and a Checkout button. Cart state persists in sessionStorage.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/CartPanel.tsx",
+          "frontend/src/context/CartContext.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/CartPanel.tsx",
+          "frontend/src/context/CartContext.tsx"
+        ]
+      },
+      {
+        "id": "REQ-11",
+        "summary": "Build a checkout page with: delivery address input, payment method selector, promo code entry field with an Apply button that validates the code and shows the discount, order summary with itemized list, subtotal, delivery charge (waived if free delivery applies), discount line, and total. On submission, create the order and payment record, then redirect to an order success page.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/CheckoutPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/CheckoutPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-12",
+        "summary": "Build an order success confirmation page that displays order ID, delivery address, itemized products list, pricing breakdown (subtotal, delivery, discount, total), and payment status.",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/pages/OrderSuccessPage.tsx"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-13",
+        "summary": "Build an order history page for authenticated users showing all their past orders sorted by date, with order status, payment info, and itemized details in collapsible order cards.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/OrderHistoryPage.tsx",
+          "frontend/src/components/OrderCard.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/OrderHistoryPage.tsx",
+          "frontend/src/components/OrderCard.tsx"
+        ]
+      },
+      {
+        "id": "REQ-14",
+        "summary": "Build an admin dashboard with four tabs: Products (add/edit/delete/toggle stock), Orders (view all, update status), Payments (view all, update status), and Offers (manage promotional offers, promo codes, and delivery settings). Include a 'Seed Demo Data' button that populates sample grocery products.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/AdminPage.tsx",
+          "frontend/src/components/admin/ProductManagement.tsx",
+          "frontend/src/components/admin/ProductForm.tsx",
+          "frontend/src/components/admin/OrderManagement.tsx",
+          "frontend/src/components/admin/PaymentManagement.tsx",
+          "frontend/src/components/admin/OffersManagement.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/AdminPage.tsx",
+          "frontend/src/components/admin/ProductManagement.tsx",
+          "frontend/src/components/admin/ProductForm.tsx",
+          "frontend/src/components/admin/OrderManagement.tsx",
+          "frontend/src/components/admin/PaymentManagement.tsx",
+          "frontend/src/components/admin/OffersManagement.tsx"
+        ]
+      },
+      {
+        "id": "REQ-15",
+        "summary": "Apply a fresh, vibrant grocery/food market visual theme throughout the app: use a green-dominant color palette with warm accent tones, clean card layouts, rounded corners, bold typography for headings, and a sticky navbar with logo, search bar, navigation links, cart icon with item badge, and login button.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js",
+          "frontend/src/components/Layout.tsx",
+          "frontend/src/components/CartIcon.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js",
+          "frontend/src/components/Layout.tsx",
+          "frontend/src/components/CartIcon.tsx"
+        ]
+      },
+      {
+        "id": "REQ-16",
+        "summary": "Render the generated hero banner image and app logo as static assets from frontend/public/assets/generated.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/HeroSection.tsx",
+          "frontend/src/components/Layout.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/HeroSection.tsx",
+          "frontend/src/components/Layout.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Implement order management backend: users can place orders with a list of items, delivery address, and payment method. Admins can view all orders and update order status (Pending, Confirmed, Delivered).",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Implement delivery charges backend: store a configurable delivery fee, minimum order amount for free delivery threshold, and a free delivery toggle. Expose functions to get and update delivery settings.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Implement promo/discount coupon backend: support creating, listing, and deleting promo codes with a discount type (percentage or fixed amount), discount value, minimum order value, usage limit, and expiry date. Expose a function to validate and apply a promo code to an order total.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-5",
+        "summary": "Implement promotional offers backend: support creating, listing, and deleting time-limited offers (e.g., festival discounts, seasonal deals) with a title, description, discount percentage, start date, and end date.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-6",
+        "summary": "Implement payment records backend: create a payment record linked to an order with status (pending, paid, failed) and payment method. Admins can update payment status.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Implement user profile backend: store a user's display name keyed by their Internet Identity principal. Expose get and upsert functions.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Build a homepage with a hero banner featuring the app name 'Quick-Groceries', a tagline, a 'Shop Now' CTA button, a feature highlights strip (fast delivery, fresh products, best prices), category quick-links, and a featured products grid showing up to 8 products with loading skeletons.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/components/HeroSection.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/components/HeroSection.tsx"
+        ]
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Build a product listing page with a search bar and category filter badges. Products load from the backend and filter in real time. Each product card shows image, name, category, price, discount badge, and an Add to Cart button that is disabled when out of stock.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/ProductsPage.tsx",
+          "frontend/src/components/ProductCard.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/ProductsPage.tsx",
+          "frontend/src/components/ProductCard.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "backend/migration.mo",
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/public/assets/generated/app-logo.dim_200x60.png",
+    "frontend/public/assets/generated/hero-banner.dim_1440x500.png",
+    "frontend/src/App.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/AccessDeniedScreen.tsx",
+    "frontend/src/components/CartIcon.tsx",
+    "frontend/src/components/CartPanel.tsx",
+    "frontend/src/components/DemoBanner.tsx",
+    "frontend/src/components/HeroSection.tsx",
+    "frontend/src/components/Layout.tsx",
+    "frontend/src/components/LoginButton.tsx",
+    "frontend/src/components/OrderCard.tsx",
+    "frontend/src/components/ProductCard.tsx",
+    "frontend/src/components/ProfileSetupModal.tsx",
+    "frontend/src/components/RoleSwitcher.tsx",
+    "frontend/src/components/admin/OffersManagement.tsx",
+    "frontend/src/components/admin/OrderManagement.tsx",
+    "frontend/src/components/admin/PaymentManagement.tsx",
+    "frontend/src/components/admin/ProductForm.tsx",
+    "frontend/src/components/admin/ProductManagement.tsx",
+    "frontend/src/context/CartContext.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/pages/AdminPage.tsx",
+    "frontend/src/pages/CheckoutPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/OrderHistoryPage.tsx",
+    "frontend/src/pages/ProductsPage.tsx",
+    "frontend/src/utils/formatCurrency.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

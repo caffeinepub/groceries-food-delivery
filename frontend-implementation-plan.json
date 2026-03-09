@@ -1,0 +1,225 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Quick-Groceries Delivery App - Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-8",
+      "summary": "Build homepage with hero banner, feature highlights, category links, and featured products grid",
+      "acceptanceCriteria": [
+        "Hero section displays app name, tagline, and Shop Now button",
+        "Feature highlights are displayed below the hero",
+        "Category links navigate to the products page filtered by category",
+        "Up to 8 featured products are shown with skeleton placeholders while loading"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Update homepage to display Quick-Groceries branding with tagline, ensure feature highlights strip shows fast delivery/fresh products/best prices, add category quick-links that navigate to products page with category filter, and limit featured products grid to 8 items with loading skeletons. Verify component usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/HeroSection.tsx",
+          "operation": "modify",
+          "description": "Update hero section to use 'Quick-Groceries' as the app name, add a compelling tagline about fresh groceries delivered fast, ensure Shop Now button links to /products, and use the generated hero banner image from frontend/public/assets/generated/hero-banner.dim_1400x500.png as the background."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Build product listing page with search, category filters, and real-time filtering",
+      "acceptanceCriteria": [
+        "Search filters products by name in real time",
+        "Category badges filter products by category",
+        "Out-of-stock products show a disabled Add to Cart button",
+        "Discount percentage badge is shown when applicable"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ProductsPage.tsx",
+          "operation": "modify",
+          "description": "Ensure search bar filters products by name in real time and category filter badges work correctly. Verify all products are loaded from backend using useGetProducts hook and filtered client-side based on search term and selected category."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "modify",
+          "description": "Ensure ProductCard displays discount badge when product.discount is present, shows out-of-stock state clearly, and disables Add to Cart button when inStock is false. Format prices in INR using formatCurrency utility."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Build shopping cart panel with quantity controls, delivery charge display, and sessionStorage persistence",
+      "acceptanceCriteria": [
+        "Cart shows all added items with quantity controls",
+        "Subtotal updates dynamically",
+        "Delivery charge is shown based on current delivery settings",
+        "Free delivery threshold message is shown when applicable",
+        "Empty cart state is displayed when no items are in the cart"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/CartPanel.tsx",
+          "operation": "modify",
+          "description": "Ensure cart panel displays delivery charge from backend delivery settings using useGetDeliverySettings hook, shows free delivery threshold message when subtotal approaches or exceeds the threshold, and displays total including delivery fee (waived if free delivery applies). Format all amounts in INR."
+        },
+        {
+          "path": "frontend/src/context/CartContext.tsx",
+          "operation": "modify",
+          "description": "Verify cart state persists to sessionStorage correctly with BigInt serialization for product IDs and quantities, and that cart operations (add, remove, update quantity, clear) work reliably."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Build checkout page with delivery address, payment method, promo code validation, and order submission",
+      "acceptanceCriteria": [
+        "Delivery address is required before placing an order",
+        "Promo code field validates against the backend and shows the discount amount or an error",
+        "Order summary shows subtotal, delivery fee (or 'Free'), discount, and final total",
+        "Successful order placement navigates to the order success page",
+        "Active promotional offers are displayed on the checkout page"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/CheckoutPage.tsx",
+          "operation": "modify",
+          "description": "Ensure delivery address input is required, payment method selector includes all PaymentMethod options (card, upi, cashOnDelivery), promo code field validates using applyPromoCode backend function and displays discount amount or error, active offers from useGetOffers are displayed with their discount percentages, order summary shows itemized list with subtotal/delivery/discount/total in INR, and successful order placement calls placeOrder and createPayment then navigates to /order-success with order and payment data in URL params."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Build order success confirmation page with order details and pricing breakdown",
+      "acceptanceCriteria": [
+        "Order ID is prominently displayed",
+        "Full pricing breakdown is shown",
+        "Payment status is displayed"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/OrderSuccessPage.tsx",
+          "operation": "modify",
+          "description": "Ensure order success page extracts order and payment data from URL params, displays order ID prominently, shows delivery address, lists all ordered items with names and quantities, displays complete pricing breakdown (subtotal, delivery fee, discount if applied, total) in INR, and shows payment status and method."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Build order history page for authenticated users with collapsible order cards",
+      "acceptanceCriteria": [
+        "Only visible to authenticated users",
+        "Orders are sorted newest first",
+        "Each card shows status, date, items, and pricing breakdown"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/OrderHistoryPage.tsx",
+          "operation": "modify",
+          "description": "Use the authorization component to ensure only authenticated users can access this page. Display access-denied screen for non-authenticated users. Fetch orders using useGetMyOrders hook and payments using useGetMyPayments, sort orders newest first, and display each order in a collapsible OrderCard component showing status, date, items, and inferred pricing breakdown."
+        },
+        {
+          "path": "frontend/src/components/OrderCard.tsx",
+          "operation": "modify",
+          "description": "Ensure OrderCard displays order status with color coding (pending/confirmed/delivered), formatted date, payment info (status and method), itemized product list, and complete pricing breakdown including delivery charges and discounts in INR. Make the card collapsible with smooth expand/collapse animation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Build admin dashboard with product/order/payment/offers management and demo data seeding",
+      "acceptanceCriteria": [
+        "Admin dashboard is only accessible to users with the Admin role",
+        "Products tab supports full CRUD with stock toggle",
+        "Orders tab allows status updates",
+        "Payments tab allows status updates",
+        "Offers tab allows creating/deleting promotional offers and promo codes, and editing delivery settings",
+        "Seed Demo Data button populates the backend with sample grocery products"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AdminPage.tsx",
+          "operation": "modify",
+          "description": "Use the authorization component to restrict access to admin role only using useGetCallerUserRole hook and AccessDeniedScreen component for non-admins. Ensure all four tabs (Products, Orders, Payments, Offers) are present and functional. Add a 'Seed Demo Data' button that calls multiple addProduct backend functions to populate sample grocery products (vegetables, fruits, dairy, bakery items) with Indian grocery names, INR prices, and realistic descriptions. Use toast notifications for all admin actions."
+        },
+        {
+          "path": "frontend/src/components/admin/ProductManagement.tsx",
+          "operation": "modify",
+          "description": "Ensure ProductManagement component supports creating products via ProductForm dialog, editing existing products by loading current values into the form, deleting products with confirmation, and toggling stock status inline. Use useAddProduct, useUpdateProduct, useDeleteProduct mutations from useQueries. Display products in a sortable table with all attributes visible."
+        },
+        {
+          "path": "frontend/src/components/admin/ProductForm.tsx",
+          "operation": "modify",
+          "description": "Ensure ProductForm dialog includes fields for name, description, price (in INR), category (dropdown from useGetCategories), imageUrl (text input), discount (optional percentage), and inStock (checkbox). Use react-hook-form for validation and controlled inputs. Support both create and edit modes."
+        },
+        {
+          "path": "frontend/src/components/admin/OrderManagement.tsx",
+          "operation": "modify",
+          "description": "Ensure OrderManagement fetches all orders using useGetAllOrders hook (admin-only backend function), displays them in a table with order ID, user principal, date, status, items count, and total in INR. Provide a dropdown to update order status (Pending, Confirmed, Delivered) using useUpdateOrderStatus mutation."
+        },
+        {
+          "path": "frontend/src/components/admin/PaymentManagement.tsx",
+          "operation": "modify",
+          "description": "Ensure PaymentManagement fetches all payments using useGetAllPayments hook (admin-only backend function), displays them in a table with payment ID, order ID, user principal, amount in INR, method, status, and timestamp. Provide a dropdown to update payment status (pending, paid, failed) using useUpdatePaymentStatus mutation. Include a refresh button."
+        },
+        {
+          "path": "frontend/src/components/admin/OffersManagement.tsx",
+          "operation": "modify",
+          "description": "Ensure OffersManagement has three sections: Promotional Offers (create/delete offers with title, description, discount percentage, start/end dates using useCreateOffer/useDeleteOffer/useGetOffers), Promo Codes (create/delete codes with code string, discount type, value, min order, usage limit, expiry using useCreatePromoCode/useDeletePromoCode/useGetAllPromoCodes), and Delivery Settings (edit delivery fee, free delivery threshold, free delivery toggle using useGetDeliverySettings/useUpdateDeliverySettings). Use date pickers for offer and promo code date inputs. Display active vs expired offers clearly."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Apply fresh green-dominant grocery theme with sticky navbar, cart badge, and consistent styling",
+      "acceptanceCriteria": [
+        "Color palette is consistently green-dominant with warm accents",
+        "Navbar is sticky and includes logo, search, nav links, cart badge, and login/logout",
+        "All pages use consistent card styles, spacing, and typography",
+        "App works in both light and dark modes"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update CSS custom properties to use a fresh green-dominant color palette with warm accent tones for both light and dark modes. Use OKLCH color space for vibrant greens (primary), warm oranges/yellows (accent), and neutral backgrounds. Ensure all theme tokens (background, foreground, primary, secondary, accent, muted, card, border, etc.) are defined for both light and dark modes and align with a grocery/food market aesthetic."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Verify Tailwind config references the CSS custom properties defined in index.css for colors, and ensure border-radius, font-family, and spacing utilities support the fresh, clean card layouts and bold typography required by the design. No new global stylesheet paths should be added."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Ensure Layout component renders a sticky navbar at the top with Quick-Groceries logo (using generated logo from frontend/public/assets/generated/freshdash-logo.dim_128x128.png), search bar (that filters products when on /products), navigation links (Home, Products, Orders for authenticated users, Admin for admin role), CartIcon with item count badge, and LoginButton. Implement a mobile menu for small screens. Apply consistent spacing, rounded corners, and green-themed styling throughout."
+        },
+        {
+          "path": "frontend/src/components/CartIcon.tsx",
+          "operation": "modify",
+          "description": "Ensure CartIcon displays a shopping cart icon with a badge showing the total number of items in the cart (sum of quantities). The badge should be visible and styled with the primary green color. Clicking the icon should toggle the CartPanel slide-over."
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Render generated hero banner and app logo as static assets from frontend/public/assets/generated",
+      "acceptanceCriteria": [
+        "Hero section uses the generated banner image as its background",
+        "Navbar displays the generated logo"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/HeroSection.tsx",
+          "operation": "modify",
+          "description": "Set the hero section background to use the generated hero banner image located at frontend/public/assets/generated/hero-banner.dim_1400x500.png. Apply the image as a CSS background-image with appropriate cover sizing and positioning, and include a gradient overlay to ensure text readability."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Update the navbar logo to display the generated app logo image located at frontend/public/assets/generated/freshdash-logo.dim_128x128.png. Use an img element with appropriate alt text ('Quick-Groceries logo') and ensure the logo links to the homepage."
+        }
+      ]
+    }
+  ]
+}

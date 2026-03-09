@@ -1,0 +1,178 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-build-a-homepage-with-a-hero-banner-featuring-the-app-name-quick-groceries-a-tagline-a-shop-now-cta-button-a-feature-highlights-strip-fast-delivery-fresh-products-best-prices-category-quick-links-and-a-featured-products-grid-showing-up-to-8-products-with-loading-skeletons",
+      "featureTitle": "Build a homepage with a hero banner featuring the app name 'Quick-Groceries', a tagline, a 'Shop Now' CTA button, a feature highlights strip (fast delivery, fresh products, best prices), category quick-links, and a featured products grid showing up to 8 products with loading skeletons.",
+      "files": [
+        "frontend/src/components/HeroSection.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-product-listing-page-with-a-search-bar-and-category-filter-badges-products-load-from-the-backend-and-filter-in-real-time-each-product-card-shows-image-name-category-price-discount-badge-and-an-add-to-cart-button-that-is-disabled-when-out-of-stock",
+      "featureTitle": "Build a product listing page with a search bar and category filter badges. Products load from the backend and filter in real time. Each product card shows image, name, category, price, discount badge, and an Add to Cart button that is disabled when out of stock.",
+      "files": [
+        "frontend/src/components/ProductCard.tsx",
+        "frontend/src/pages/ProductsPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-shopping-cart-panel-slide-over-with-item-list-quantity-increment-decrement-controls-remove-buttons-subtotal-applied-delivery-charge-and-a-checkout-button-cart-state-persists-in-sessionstorage",
+      "featureTitle": "Build a shopping cart panel (slide-over) with item list, quantity increment/decrement controls, remove buttons, subtotal, applied delivery charge, and a Checkout button. Cart state persists in sessionStorage.",
+      "files": [
+        "frontend/src/components/CartPanel.tsx",
+        "frontend/src/context/CartContext.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-checkout-page-with-delivery-address-input-payment-method-selector-promo-code-entry-field-with-an-apply-button-that-validates-the-code-and-shows-the-discount-order-summary-with-itemized-list-subtotal-delivery-charge-waived-if-free-delivery-applies-discount-line-and-total-on-submission-create-the-order-and-payment-record-then-redirect-to-an-order-success-page",
+      "featureTitle": "Build a checkout page with: delivery address input, payment method selector, promo code entry field with an Apply button that validates the code and shows the discount, order summary with itemized list, subtotal, delivery charge (waived if free delivery applies), discount line, and total. On submission, create the order and payment record, then redirect to an order success page.",
+      "files": [
+        "frontend/src/pages/CheckoutPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-an-order-history-page-for-authenticated-users-showing-all-their-past-orders-sorted-by-date-with-order-status-payment-info-and-itemized-details-in-collapsible-order-cards",
+      "featureTitle": "Build an order history page for authenticated users showing all their past orders sorted by date, with order status, payment info, and itemized details in collapsible order cards.",
+      "files": [
+        "frontend/src/components/OrderCard.tsx",
+        "frontend/src/pages/OrderHistoryPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-an-admin-dashboard-with-four-tabs-products-add-edit-delete-toggle-stock-orders-view-all-update-status-payments-view-all-update-status-and-offers-manage-promotional-offers-promo-codes-and-delivery-settings-include-a-seed-demo-data-button-that-populates-sample-grocery-products",
+      "featureTitle": "Build an admin dashboard with four tabs: Products (add/edit/delete/toggle stock), Orders (view all, update status), Payments (view all, update status), and Offers (manage promotional offers, promo codes, and delivery settings). Include a 'Seed Demo Data' button that populates sample grocery products.",
+      "files": [
+        "frontend/src/components/admin/OffersManagement.tsx",
+        "frontend/src/components/admin/OrderManagement.tsx",
+        "frontend/src/components/admin/PaymentManagement.tsx",
+        "frontend/src/components/admin/ProductForm.tsx",
+        "frontend/src/components/admin/ProductManagement.tsx",
+        "frontend/src/pages/AdminPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-fresh-vibrant-grocery-food-market-visual-theme-throughout-the-app-use-a-green-dominant-color-palette-with-warm-accent-tones-clean-card-layouts-rounded-corners-bold-typography-for-headings-and-a-sticky-navbar-with-logo-search-bar-navigation-links-cart-icon-with-item-badge-and-login-button",
+      "featureTitle": "Apply a fresh, vibrant grocery/food market visual theme throughout the app: use a green-dominant color palette with warm accent tones, clean card layouts, rounded corners, bold typography for headings, and a sticky navbar with logo, search bar, navigation links, cart icon with item badge, and login button.",
+      "files": [
+        "frontend/src/components/CartIcon.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-render-the-generated-hero-banner-image-and-app-logo-as-static-assets-from-frontend-public-assets-generated",
+      "featureTitle": "Render the generated hero banner image and app logo as static assets from frontend/public/assets/generated.",
+      "files": [
+        "frontend/src/components/HeroSection.tsx",
+        "frontend/src/components/Layout.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
+      ],
+      "testIds": [
+        "REQ-16"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
